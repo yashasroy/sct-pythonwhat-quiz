@@ -344,4 +344,9 @@ select1.on_change(callback)
 
 *** =sct
 ```{python}
+# DO NOT MODIFY
+for name in ['select1', 'select2']:
+    Ex().check_object(name).has_equal_value("%s unequal"%name)
+# Put SCTs below here ----
+
 ```
