@@ -188,3 +188,36 @@ if True: ["yes" if True else False for ii in range(3)]
 ```{python}
 
 ```
+
+--- type:NormalExercise lang:python xp:100 skills:2 key:23e667966f
+## Part checks (2)
+
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+
+```
+
+*** =sample_code
+```{python}
+for ii in range(3):
+    for jj in range(4):
+        print(ii + jj)
+```
+
+*** =solution
+```{python}
+for ii in range(3):
+    for jj in range(4):
+        print(ii + jj)
+```
+
+*** =sct
+```{python}
+
+```
