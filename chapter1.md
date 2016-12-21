@@ -295,9 +295,9 @@ class Select:
     
     def __init__(self, value):
         self.callback = None
-        self.value = value
+        self._value = value
         
-    def on_change(cb):
+    def on_change(self, cb):
         self.callback = cb
     
     @property
@@ -346,7 +346,32 @@ select1.on_change(callback)
 ```{python}
 # DO NOT MODIFY
 for name in ['select1', 'select2']:
-    Ex().check_object(name).has_equal_value("%s unequal"%name)
+    Ex().has_equal_value(expr_code = '%s.value'%s)
 # Put SCTs below here ----
+
+```
+
+--- type:NormalExercise lang:python xp:100 skills:2 key:82a04869ae
+## Expression tests (2)
+
+
+
+*** =pre_exercise_code
+```{python}
+
+```
+
+*** =sample_code
+```{python}
+
+```
+
+*** =solution
+```{python}
+
+```
+
+*** =sct
+```{python}
 
 ```
