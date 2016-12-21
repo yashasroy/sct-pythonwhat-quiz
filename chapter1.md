@@ -149,27 +149,39 @@ f("b")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:746620aaa8
-## <<<New Exercise>>>
+## Part Checks (1)
 
+#### fail 1 - "No inline if expression"
 
+```
+if True: ["yes" for ii in range(3) if ii > 2]
+elif False: pass
+else: pass
+```
 
-*** =instructions
+#### fail 2 - "No if filter in list comp"
 
-*** =hint
+```
+if True: ["yes" for ii in range(3)]
+elif False: pass
+else: pass
+```
 
-*** =pre_exercise_code
-```{python}
+#### fail 3 - "No else statement"
 
+```
+if True: ["yes" for ii in range(3) if ii > 2]
+elif False: pass
 ```
 
 *** =sample_code
 ```{python}
-
+if True: ["yes" if True else False for ii in range(3)]
 ```
 
 *** =solution
 ```{python}
-
+if True: ["yes" if True else False for ii in range(3)]
 ```
 
 *** =sct
