@@ -193,11 +193,6 @@ if True: ["yes" if True else False for ii in range(3)]
 ## Part checks (2)
 
 
-
-*** =instructions
-
-*** =hint
-
 *** =pre_exercise_code
 ```{python}
 
