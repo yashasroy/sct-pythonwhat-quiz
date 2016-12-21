@@ -213,6 +213,13 @@ f = open('test.txt')
 for ii in f: print(ii)
 ```
 
+#### fail 2 - "Incorrect output"
+
+```
+with open('test.txt') as f:
+    for ii in f: print('no')
+```
+
 *** =pre_exercise_code
 ```{python}
 open('test.txt', 'w').write('a\nb\nc\n')
