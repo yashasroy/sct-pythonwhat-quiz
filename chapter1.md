@@ -454,5 +454,8 @@ x = np.array([1,2,3])
 
 *** =sct
 ```{python}
+# NOTE: write 2 SCTs below that would, on their own, pass all cases
+# SCT using test_correct
 
+# SCT using test_or
 ```
