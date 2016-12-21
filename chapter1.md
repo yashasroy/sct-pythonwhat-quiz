@@ -192,6 +192,27 @@ if True: ["yes" if True else False for ii in range(3)]
 --- type:NormalExercise lang:python xp:100 skills:2 key:23e667966f
 ## Part checks (2)
 
+#### pass 1 -
+
+```
+with open('test.txt') as f:
+    map(print, f)
+```
+
+#### pass 2 - 
+
+```
+with open('test.txt') as f:
+    for ii in f.readlines(): print(ii)
+```
+
+#### fail 1 - "No with block"
+
+```
+f = open('test.txt')
+for ii in f: print(ii)
+```
+
 
 *** =pre_exercise_code
 ```{python}
@@ -200,19 +221,18 @@ if True: ["yes" if True else False for ii in range(3)]
 
 *** =sample_code
 ```{python}
-for ii in range(3):
-    for jj in range(4):
-        print(ii + jj)
+with open('test.txt') as f:
+    for ii in f:
+        print(ii)
 ```
 
 *** =solution
 ```{python}
-for ii in range(3):
-    for jj in range(4):
-        print(ii + jj)
+with open('test.txt') as f:
+    for ii in f:
+        print(ii)
 ```
 
 *** =sct
 ```{python}
-
 ```
