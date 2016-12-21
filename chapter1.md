@@ -354,6 +354,34 @@ for name in ['select1', 'select2']:
 --- type:NormalExercise lang:python xp:100 skills:2 key:82a04869ae
 ## Expression tests (2)
 
+#### pass
+
+```
+def f(c, b, *args, **kwargs):
+    if c > 1: return c + b
+```
+
+#### pass
+
+```
+def f(c, b, *args, **kwargs):
+    print(args)
+    if c > 1: return c + b
+```
+
+#### fail 1 - "b should be kw arg"
+
+```
+def f(a, b, *args, **kwargs): 
+    if a > 1: return a + b
+```
+
+#### fail 2 - "incorrect if test"
+
+```
+def f(a, b, *args, **kwargs):
+    if a == 1: return a + b
+```
 
 
 *** =pre_exercise_code
@@ -363,12 +391,65 @@ for name in ['select1', 'select2']:
 
 *** =sample_code
 ```{python}
-
+def f(a, b=1, *args, **kwargs): 
+    if a > 1: return a + b
 ```
 
 *** =solution
 ```{python}
+def f(a, b=1, *args, **kwargs):
+    if a > 1: return a + b
+```
 
+*** =sct
+```{python}
+
+```
+
+--- type:NormalExercise lang:python xp:100 skills:2 key:40d94c3753
+## Logic tests (1)
+
+#### pass
+
+```
+import pandas as pd
+
+x = pd.np.array([1,2,3])
+```
+
+#### fail 1 - "numpy array w/wrong values"
+
+```
+import numpy as np
+
+x = np.array([1,2])
+```
+
+#### fail 2 - "x not numpy array"
+
+```
+import numpy as np
+
+x = [1,2,3]
+```
+
+*** =pre_exercise_code
+```{python}
+
+```
+
+*** =sample_code
+```{python}
+import numpy as np
+
+x = np.array([1,2,3])
+```
+
+*** =solution
+```{python}
+import numpy as np
+
+x = np.array([1,2,3])
 ```
 
 *** =sct
