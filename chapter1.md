@@ -459,3 +459,39 @@ x = np.array([1,2,3])
 
 # SCT using test_or
 ```
+--- type:NormalExercise lang:python xp:100 skills:2 key:e29e74e2f3
+## Processes
+
+Only need to make solution work!
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+from bokeh.plotting import figure
+p = figure(x_axis_label='fertility (children per woman)', 
+           y_axis_label='female_literacy (% population)')
+
+class A:
+    def __init__(self, value): 
+        self.value = value
+        self.pickle_poison = p
+```
+
+*** =sample_code
+```{python}
+a = A(value=1)
+```
+
+*** =solution
+```{python}
+a = A(value=1)
+```
+
+*** =sct
+```{python}
+Ex().check_object('a').has_equal_value()
+```
