@@ -82,3 +82,33 @@ print(x)
 # "expected [1,2,3] in your output"
 
 ```
+
+--- type:NormalExercise lang:python xp:100 skills:2 key:d71dfcb25c
+## Simple tests (2)
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+
+```
+
+*** =sample_code
+```{python}
+def f(a): return a*2
+
+f("b")
+```
+
+*** =solution
+```{python}
+
+```
+
+*** =sct
+```{python}
+
+```
