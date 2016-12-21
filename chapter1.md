@@ -213,10 +213,9 @@ f = open('test.txt')
 for ii in f: print(ii)
 ```
 
-
 *** =pre_exercise_code
 ```{python}
-
+open('test.txt', 'w').write('a\nb\nc\n')
 ```
 
 *** =sample_code
@@ -235,4 +234,27 @@ with open('test.txt') as f:
 
 *** =sct
 ```{python}
+```
+
+--- type:NormalExercise lang:python xp:100 skills:2 key:1b865f62b7
+## Expression tests (1)
+
+*** =pre_exercise_code
+```{python}
+
+```
+
+*** =sample_code
+```{python}
+
+```
+
+*** =solution
+```{python}
+
+```
+
+*** =sct
+```{python}
+
 ```
