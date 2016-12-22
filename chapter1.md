@@ -38,7 +38,7 @@ x = pd.np.array([1,2,3])
 print(x)
 ```
 
-#### fail 2 - "Your value of x is incorrect"
+#### fail 2 - "x is not an ndarray"
 
 ```python
 import numpy as np
