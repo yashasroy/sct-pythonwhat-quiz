@@ -201,7 +201,9 @@ else: pass
 
 ```
 with open('test.txt') as f:
-    map(print, f)
+    print(f.read())
+    print(f.read())
+    print(f.read())
 ```
 
 #### pass 2 - 
