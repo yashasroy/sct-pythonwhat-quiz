@@ -353,7 +353,7 @@ select1.on_change(callback)
 ```{python}
 # DO NOT MODIFY
 for name in ['select1', 'select2']:
-    Ex().has_equal_value(expr_code = '%s.value'%s)
+    Ex().has_equal_value(expr_code = name+'.value')
 # Put SCTs below here ----
 
 ```
