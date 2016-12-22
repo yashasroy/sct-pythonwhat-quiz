@@ -311,7 +311,7 @@ class Select:
     def value(self): return self._value
     
     @value.setter
-    def _(self, x):
+    def value(self, x):
         self._value = x
         if self.callback: self.callback()
 
