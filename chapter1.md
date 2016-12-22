@@ -162,7 +162,7 @@ else: pass
 #### fail 2 - "No if filter in list comp"
 
 ```
-if True: ["yes" for ii in range(3)]
+if True: ["yes" if True else False for ii in range(3)]
 elif False: pass
 else: pass
 ```
@@ -176,12 +176,17 @@ elif False: pass
 
 *** =sample_code
 ```{python}
-if True: ["yes" if True else False for ii in range(3)]
+if True: ["yes" if True else False for ii in range(3) if ii > 2]
+elif False: pass
+else: pass
+
 ```
 
 *** =solution
 ```{python}
-if True: ["yes" if True else False for ii in range(3)]
+if True: ["yes" if True else False for ii in range(3) if ii > 2]
+elif False: pass
+else: pass
 ```
 
 *** =sct
