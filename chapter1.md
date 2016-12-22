@@ -263,7 +263,17 @@ def callback():
         select2.value = 2
 ```
 
-#### fail 2 - "wrong select2 value in if"
+#### fail 2 - "need assign select2 value in if"
+
+```
+def callback():
+    if select1.value == 'a':
+        pass
+    else:
+        select2.value = 2
+```
+
+#### fail 3 - "wrong select2 value in if"
 
 ```
 def callback():
@@ -273,22 +283,12 @@ def callback():
         select2.value = 2
 ```
 
-#### fail 3 - "wrong select2 value in else"
+#### fail 4 - "wrong select2 value in else"
 
 ```
 def callback():
     if select1.value == 'a':
         select2.value = 1
-    else:
-        select2.value = 'WRONGVAL'
-```
-
-#### fail 4 - "select2 unused in if"
-
-```
-def callback():
-    if select1.value == 'a':
-        pass
     else:
         select2.value = 'WRONGVAL'
 ```
