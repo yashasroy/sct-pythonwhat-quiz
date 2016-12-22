@@ -502,3 +502,62 @@ a = A(value=1)
 ```{python}
 Ex().check_object('a').has_equal_value()
 ```
+
+--- type:NormalExercise lang:python xp:100 skills:2 key:d874e260cb
+## Function Signatures
+
+#### pass -
+
+```
+plot([1,2], [3,4], color='b')
+```
+
+#### fail 1 - "forgot a pos arg"
+
+```
+plot([1,2], color='b', shape='.')
+```
+
+#### fail 2 - "check first arg"
+
+```
+plot([1], [3,4], color='b', shape='.')
+```
+
+#### fail 3 - "forgot color"
+
+```
+plot([1], [3,4], shape='.')
+```
+
+#### fail 3 - "check color arg"
+
+```
+plot([1], [3,4], color='red', shape='.')
+```
+
+
+*** =pre_exercise_code
+```{python}
+def plot(*args, **kwargs):
+    """
+    args is positional arguments x, y
+    kwargs may include color or shape
+    """
+    pass
+```
+
+*** =sample_code
+```{python}
+plot([1,2], [3,4], color='b', shape='.')
+```
+
+*** =solution
+```{python}
+plot([1,2], [3,4], color='b', shape='.')
+```
+
+*** =sct
+```{python}
+
+```
