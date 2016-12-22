@@ -527,13 +527,13 @@ plot([1], [3,4], color='b', shape='.')
 #### fail 3 - "forgot color"
 
 ```
-plot([1], [3,4], shape='.')
+plot([1,2], [3,4], shape='.')
 ```
 
 #### fail 3 - "check color arg"
 
 ```
-plot([1], [3,4], color='red', shape='.')
+plot([1,2], [3,4], color='red', shape='.')
 ```
 
 
@@ -559,5 +559,4 @@ plot([1,2], [3,4], color='b', shape='.')
 
 *** =sct
 ```{python}
-
 ```
