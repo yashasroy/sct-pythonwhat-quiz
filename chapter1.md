@@ -364,14 +364,14 @@ for name in ['select1', 'select2']:
 #### pass
 
 ```
-def f(c, b, *args, **kwargs):
+def f(c, b=1, *args, **kwargs):
     if c > 1: return c + b
 ```
 
 #### pass
 
 ```
-def f(c, b, *args, **kwargs):
+def f(c, b=1, *args, **kwargs):
     print(args)
     if c > 1: return c + b
 ```
@@ -379,14 +379,14 @@ def f(c, b, *args, **kwargs):
 #### fail 1 - "b should be kw arg"
 
 ```
-def f(a, b, *args, **kwargs): 
+def f(a, b=1, *args, **kwargs): 
     if a > 1: return a + b
 ```
 
 #### fail 2 - "incorrect if test"
 
 ```
-def f(a, b, *args, **kwargs):
+def f(a, b=1, *args, **kwargs):
     if a == 1: return a + b
 ```
 
