@@ -379,7 +379,7 @@ def f(c, b=1, *args, **kwargs):
 #### fail 1 - "b should be kw arg"
 
 ```
-def f(a, b=1, *args, **kwargs): 
+def f(a, b, *args, **kwargs): 
     if a > 1: return a + b
 ```
 
