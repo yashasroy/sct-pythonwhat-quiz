@@ -560,3 +560,59 @@ plot([1,2], [3,4], color='b', shape='.')
 *** =sct
 ```{python}
 ```
+
+--- type:NormalExercise lang:python xp:100 skills:2 key:20c3c210c6
+## More Functions
+
+#### pass 1
+
+```
+x = [1,2,3]
+c.a(x).b('X', 'Y')
+```
+
+#### fail 1 - "incorrect arg for some_list"
+
+```
+c.a([1,2])
+```
+
+#### fail 2 - "forgot y arg in c.a.b"
+
+```
+c.a([1,2,3]).b('X')
+```
+
+#### fail 3 - "incorrect x arg in c.a.b"
+
+```
+c.a([1,2,3]).b('Z', 'Z')
+```
+
+
+*** =pre_exercise_code
+```{python}
+class Chain():
+    def a(self, some_list):
+        return self
+    
+    def b(self, x, y):
+        print(x)
+        return self
+
+c = Chain()
+```
+
+*** =sample_code
+```{python}
+c.a([1,2,3]).b('X', 'Y')
+```
+
+*** =solution
+```{python}
+c.a([1,2,3]).b('X', 'Y')
+```
+
+*** =sct
+```{python}
+```
