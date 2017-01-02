@@ -167,12 +167,6 @@ elif False: pass
 else: pass
 ```
 
-#### fail 3 - "No else statement"
-
-```
-if True: ["yes" for ii in range(3) if ii > 2]
-elif False: pass
-```
 
 *** =sample_code
 ```{python}
