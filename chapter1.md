@@ -195,9 +195,7 @@ else: pass
 
 ```
 with open('test.txt') as f:
-    print(f.read())
-    print(f.read())
-    print(f.read())
+    print(f.read().replace('\n','\n\n'))
 ```
 
 #### pass 2 - 
