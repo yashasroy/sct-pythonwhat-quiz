@@ -312,7 +312,7 @@ class Select:
 *** =sample_code
 ```{python}
 select1 = Select(value='a')
-select2 = Select(value=0)
+select2 = Select(value=1)
 
 # ONLY MODIFY HERE
 def callback():
