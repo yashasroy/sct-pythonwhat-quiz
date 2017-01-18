@@ -28,6 +28,7 @@ x = y = npp.array([1,2,3])
 print(y)
 ```
 
+
 #### fail 1 - "Did you import numpy?"
 
 ```python
@@ -36,7 +37,9 @@ import pandas as pd
 x = pd.np.array([1,2,3])
 
 print(x)
+
 ```
+
 
 #### fail 2 - "x is not an ndarray"
 
@@ -82,6 +85,16 @@ print(x)
 
 *** =sct
 ```{python}
+
+Ex().test_import("numpy", same_as=False)
+
+Ex().test_object('x', undefined_msg = 'x is undefined')
+
+#Ex().test_output_contains("[1 2 3]", pattern = False, no_output_msg = "Expected [1,2,3] in your output")
+
+Ex().test_function('numpy.array', not_called_msg = "x is not an ndarray")
+
+Ex().test_function('print', not_called_msg = 'Expected [1,2,3] in your output')
 
 ```
 
@@ -178,18 +191,38 @@ else: pass
 
 *** =solution
 ```{python}
-if True: ["yes" if True else False for ii in range(3) if ii > 2]
-elif False: pass
-else: pass
+#if True: ["yes" if True else False for ii in range(3) if ii > 2]
+#elif False: pass
+#else: pass
+
+["yes" if True else False for ii in range(3) if ii > 2]
 ```
 
 *** =sct
 ```{python}
+#first_if_test = Ex().check_if_else(0).check_test().check_body()
+
+#list_comp = first_if_test.check_list_comp(0)
+
+#list_comp = check_list_comp(0)
+
+#list_comp.check_body().
+
+#check_if_exp(0).has_equal_value()
+
+#list_comp.check_iter().has_equal_value()
+
+#list_comp.check_ifs(0).multi([has_equal_value(context_vals=[ii]) for ii in range(0,3)])
+
+
+
 
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:23e667966f
 ## Part checks (2)
+
+NOTE: First example is failing because my SCT tests the for loop. Need to spend more time on this. Also, spec2 has 'incorrect_msg', but is there an option such as 'undefined_msg' or 'not_called_msg'?
 
 #### pass 1 -
 
@@ -240,10 +273,17 @@ with open('test.txt') as f:
 
 *** =sct
 ```{python}
+with_open = Ex().check_with(0).check_context(0).check_function('open', index=0).check_args(0).has_equal_value()
+with_body = Ex().check_with(0).check_body().test_function('print')
+for_body = with_body.check_for_loop(0).check_body()
+for_body.test_function('print', incorrect_msg = 'Incorrect output')
+
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:1b865f62b7
 ## Expression tests (1)
+
+NOTE: Ended up using spec1 due to time constraints.
 
 #### fail 1 - "wrong if test"
 
@@ -347,6 +387,24 @@ select1.on_change(callback)
 for name in ['select1', 'select2']:
     Ex().has_equal_value(expr_code = name+'.value')
 # Put SCTs below here ----
+#fn_body = Ex().check_function_def('callback').check_body()
+#fn_body.check_if_else(0).has_equal_ast()
+
+#Spec1
+
+pre_code = """
+select1 = Select(value="a")
+select2 = Select(value=1)
+"""
+
+def inner_test():
+    test_if_else(
+            test = test_expression_result(context_vals=["a"], incorrect_msg = 'wrong if test'),
+            body = test_object_after_expression('select2', undefined_msg = 'need assign select2 value in if', incorrect_msg = "wrong select2 value in if"),
+            orelse = test_object_after_expression('select2', pre_code = pre_code, incorrect_msg = "wrong select2 value in else")
+            )
+
+test_function_definition("callback", body=inner_test)
 
 ```
 
@@ -359,6 +417,8 @@ for name in ['select1', 'select2']:
 def f(c, b=1, *args, **kwargs):
     if c > 1: return c + b
 ```
+
+NOTE: I need to spend more time on the `if` statement. `has_equal_ast` does not accept anything other than `a`.
 
 #### pass
 
@@ -402,6 +462,12 @@ def f(a, b=1, *args, **kwargs):
 
 *** =sct
 ```{python}
+
+fn_def = Ex().check_function_def('f').multi(check_args(0), check_args('b').has_equal_value(), check_args(2), check_args(3))
+
+fn_body = fn_def.check_body()
+
+fn_body.check_if_else(0).check_test().has_equal_ast()
 
 ```
 
@@ -456,7 +522,14 @@ x = np.array([1,2,3])
 # NOTE: write 2 SCTs below that would, on their own, pass all cases
 # SCT using test_correct
 
+test_correct(test_function('numpy.array', incorrect_msg = 'numpy array w/wrong values', not_called_msg = 'x not numpy array'),
+             test_object('x', incorrect_msg = 'numpy array w/wrong values'))
+ 
 # SCT using test_or
+#test_or(test_function('numpy.array', incorrect_msg = 'numpy array w/wrong values', not_called_msg = 'x not numpy array'),
+#        test_object('x', incorrect_msg = 'numpy array w/wrong values'))
+        
+
 ```
 --- type:NormalExercise lang:python xp:100 skills:2 key:e29e74e2f3
 ## Processes
@@ -497,6 +570,8 @@ Ex().check_object('a').has_equal_value()
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:d874e260cb
 ## Function Signatures
+
+NOTE: I don't know how to test optional kwargs. Ended up using `test_function`, commented out my attempts with `check_function` and `test_function_v2`.
 
 #### pass -
 
@@ -551,6 +626,20 @@ plot([1,2], [3,4], color='b', shape='.')
 
 *** =sct
 ```{python}
+test_function("plot", args=[0,1], keywords=['color', 'shape'])
+
+#Ex().check_function('plot', 0).multi(check_args(0).has_equal_value("check first arg"), check_args(1).has_equal_value("check second arg"), #check_args('color').has_equal_value("check color arg"), check_args('shape').has_equal_value("check shape arg"))
+
+
+#sig = sig_from_params(param("x", param.POSITIONAL_OR_KEYWORD),
+#                      param("y", param.POSITIONAL_OR_KEYWORD),
+#                      param("color", param.POSITIONAL_OR_KEYWORD),
+#                      param("shape", param.POSITIONAL_OR_KEYWORD))
+#test_function_v2("plot", params=["x"], signature=sig, index=1, incorrect_msg = 'check first arg', not_called_msg='forgot a pos arg')
+#test_function_v2("plot", params=["y"], signature=sig, index=1, incorrect_msg = 'check second arg', not_called_msg='forgot a pos arg')
+#test_function_v2("plot", params=["color"], signature=sig, index=1, incorrect_msg='check color arg', not_called_msg = 'forgot color')
+#test_function_v2("plot", params=["shape"], signature=sig, index=1)
+
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:20c3c210c6
