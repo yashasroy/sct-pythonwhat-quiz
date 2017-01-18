@@ -101,6 +101,8 @@ Ex().test_function('print', not_called_msg = 'Expected [1,2,3] in your output')
 --- type:NormalExercise lang:python xp:100 skills:2 key:d71dfcb25c
 ## Simple tests (2)
 
+NOTE: Skipping due to time constraints
+
 #### pass 1
 
 ```
@@ -163,6 +165,8 @@ f("b")
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:746620aaa8
 ## Part Checks (1)
+
+NOTE: I have a handle on this, but had to move on due to time
 
 #### fail 1 - "No inline if expression"
 
@@ -534,6 +538,8 @@ test_correct(test_function('numpy.array', incorrect_msg = 'numpy array w/wrong v
 --- type:NormalExercise lang:python xp:100 skills:2 key:e29e74e2f3
 ## Processes
 
+NOTE: Didn't get to this in time.
+
 Only need to make solution work!
 
 
@@ -644,6 +650,8 @@ test_function("plot", args=[0,1], keywords=['color', 'shape'])
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:20c3c210c6
 ## More Functions
+
+NOTE: Didn't get to this in time.
 
 #### pass 1
 
